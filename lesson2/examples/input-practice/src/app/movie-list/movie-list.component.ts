@@ -17,7 +17,24 @@ export class MovieListComponent implements OnInit {
       if (!this.movies.includes(newTitle) && newTitle ) {
          this.movies.push(newTitle);
       } else {
-         return "not"
+         return "Please submit a valid entry."
       }
    }
+
+   // The following code is one solution to the bonus task.
+   // Comment out lines 16 - 20, then uncomment lines 25 - 35 to use it.
+   /*
+   addMovie (newTitle: string) {
+      let errorMsg = '';
+      if(newTitle === ''){
+         errorMsg = 'Please enter a movie title.';
+      } else if (this.movies.includes(newTitle)) {
+         errorMsg = `${newTitle} is already in your movie list.`;
+      } else {
+         this.movies.push(newTitle);
+      }
+      return errorMsg;
+   }
+   */
+
 }
