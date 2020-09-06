@@ -4,5 +4,21 @@
        <li *ngFor ="let movie of movies">{{movie}}</li>
     </ol>
     <hr>
+    <!-- <input #newMovie (keyup.enter)='true' type='text' placeholder="Enter Movie Title Here"/> -->
+    <!-- <input #newMovie (keyup.q)='true' type='text' placeholder="Enter Movie Title Here"/> -->
+    <!-- <input #newMovie (keyup.arrowup)='true' type='text' placeholder="Enter Movie Title Here"/> -->
+    <!-- <input #newMovie (click) ='true' type='text' placeholder="Enter Movie Title Here"/> -->
+    <!-- <button (click)='true'>Add</button> -->
+    <!-- <p>{{newMovie.value}}</p> -->
 
- </div>
+    <input #newMovie (keyup.enter)="addMovie(newMovie.value); newMovie.value = '' "  type="text" placeholder="Enter Movie Title Here"/>
+    <button (click)="addMovie(newMovie.value); newMovie.value = '' ">Add</button>
+    
+    <!-- <p *ngif ="newMovie.value === ''; else error"></p> for some reason this one does not work!!-->
+    <!-- <p *ngIf ="newMovie.value !== ''; else error"></p> -->
+    
+    <ng-template #error>
+       Please enter a qualified value.
+    </ng-template>
+
+</div>
