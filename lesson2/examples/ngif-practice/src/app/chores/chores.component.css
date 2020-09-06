@@ -6,6 +6,10 @@
     color: #3c79b8;
 }
 
+#treat {
+    color: green;
+}
+
 h3 {
     text-align: center;
 }
@@ -15,4 +19,12 @@ img {
     height: auto;
     display: block;
     margin: auto;
+}
+
+p {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
 }
