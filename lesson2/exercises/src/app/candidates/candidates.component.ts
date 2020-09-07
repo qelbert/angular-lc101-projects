@@ -32,7 +32,9 @@ export class CandidatesComponent implements OnInit {
     if (!this.crew.includes(person) && person !== "clearCrew") {
       return this.crew.push(person);
     } else if (person==="clearCrew") {
-      this.crew = [];
+      return this.crew = [];
+    } else {
+      return 0
     }
   }
 
