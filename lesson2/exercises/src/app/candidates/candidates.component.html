@@ -5,34 +5,61 @@
         <div class="candidates col-3">
             <h2>Candidates</h2>
             <ol>
-                <li>Use *ngFor to automatically list all of the candidates' names.</li>
+                <li (click) ='selected = candidate' *ngFor = 'let candidate of candidates'>{{candidate.name}}</li>
             </ol>
         </div>
     
         <div class="data col-3">
             <h2>Candidate Data</h2>
-            <p> <!-- Add an *ngIf to this tag to display the selected candidate's data-->
-                {{selected.name}}
-            </p>
+           <p *ngIf = "selected === candidate; else data"></p>
+ 
+            <!-- {{selected.name}} -->
+
+            <ng-template #data>
+                Name: {{selected.name}} <br>
+                Age: {{selected.data.age}} <br>
+                Mass: {{selected.data.mass}} <br>
+                Sidekick: {{selected.data.sidekick}}
+            </ng-template>
         </div>
     
         <div class="centered col-3">
             <h2>Sidekick</h2>
             <!-- Use *ngIf and the correct placeholder to display a sidekick's image -->
-            <img src="{{placeholder}}" alt="OOPS! No image available."/>
+            <!-- <img *ngIf = "selected === candidate; else blank" src="{{selected.image}}" alt="OOPS! No image available."/> -->
+            <img *ngIf = "selected === candidate; else blank" src="{{selected.image}}"/>
+            
+            <ng-template #blank>
+                <img src="{{selected.image}}" alt="OOPS! No image available."/>
+            <p>{{selected.data.sidekick}}</p>
+            </ng-template>
+
         </div>
 
         <div class="crew col-3">
             <h2>Selected Crew</h2>
+
             <ul>
-                <li>Use *ngFor to list the selected crew.</li>
+                <li *ngFor ="let members of crew">{{members}}</li>
             </ul>
+
+
             <!-- Add a "Clear Crew List" button here. -->
+
+            <button (click) = "addToCrew('clearCrew')" *ngIf = "crew.length > 0; else blank2">Clear Crew List</button>
+            <ng-template #blank2>
+                <p></p>
+            </ng-template>
+
         </div>
     </div>
     <hr>
     <div class = 'centered'>
+
+    <button (click)="addToCrew(selected.name)">Send on Mission</button>
+
         <button>Clear Data & Image</button>
+
         <!-- Add a "Send on Mission" button here. -->
     </div>
 </div>
