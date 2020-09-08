@@ -62,7 +62,8 @@
 
         <!-- Add a "Send on Mission" button here. -->
 
-        <button *ngIf = "selected && addToCrew(selected.name) !== 0; else blank3" (click)="addToCrew(selected.name)">Send on Mission</button>
+        <button (click)="addToCrew(selected.name)" *ngIf = "selected && crew.length <= 2 && !crew.includes(selected.name); else blank3">Send on Mission</button>
+
         <ng-template #blank3>
             <p></p>
         </ng-template>

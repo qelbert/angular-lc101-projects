@@ -33,9 +33,7 @@ export class CandidatesComponent implements OnInit {
       return this.crew.push(person);
     } else if (person==="clearCrew") {
       return this.crew = [];
-    } else {
-      return 0
-    }
+    } 
   }
 
   // BONUS: Code the changeMissionName function here:
